@@ -17,17 +17,8 @@ public class DataInitializer {
     @PostConstruct
     private void init() {
 
-        User user = new User();
-        user.setName("Oleg");
-        user.setAge(25);
-        user.setEmail("oleg@mail.ru");
-        userService.save(user);
-
-        User user2 = new User();
-        user2.setName("Vasily");
-        user2.setAge(24);
-        user2.setEmail("vasily@mail.ru");
-        userService.save(user2);
+        userService.save(new User("Oleg", 25, "oleg@mail.ru"));
+        userService.save(new User("Vasily", 24, "vasily@mail.ru"));
 
     }
 }
