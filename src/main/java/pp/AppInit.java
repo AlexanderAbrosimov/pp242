@@ -1,23 +1,21 @@
 package pp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import pp.dao.UserDAO;
-import pp.models.User;
+import pp.service.UserService;
 
 @Component
 public class AppInit {
 
-    UserDAO userDAO;
+    UserService userService;
 
     @Autowired
-    public void setUserDAO(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public void setUserDAO(UserService userService) {
+        this.userService = userService;
     }
 
 //    @Bean
 //    void addUsers() {
-//        userDAO.save(new User());
+//        userService.save(new User());
 //    }
 }
