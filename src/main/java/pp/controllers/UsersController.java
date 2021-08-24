@@ -15,7 +15,6 @@ public class UsersController {
 
     private UserDAO userDAO;
 
-    @Autowired
     public UsersController(UserDAO userDAO) {
         this.userDAO = userDAO;
     }

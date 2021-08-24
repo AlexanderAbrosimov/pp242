@@ -16,7 +16,6 @@ public class UserDAOImpl implements UserDAO {
     EntityManager em;
 
     @Override
-    @Transactional
     public List<User> index() {
         return em.createQuery("SELECT u FROM User u", User.class)
                 .getResultList();
