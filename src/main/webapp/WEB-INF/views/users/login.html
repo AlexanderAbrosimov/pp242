@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        #login-form {
+            margin: 200px auto;
+            width: 220px;
+        }
+        #login-form h1 {
+            text-align: center;
+        }
+
+        #login-form fieldset {
+            border: none;
+            padding: 20px;
+            position: relative;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+<div id="login-form">
+    <h1>Please sign in</h1>
+    <form method="post" action="/login">
+        <fieldset>
+        <input required value="Username" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value='' " name="j_username"/>
+        <br><br>
+        <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' " name="j_password"/>
+        <br><br>
+        <input type="submit" value="Sign in" />
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

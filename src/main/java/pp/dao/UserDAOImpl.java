@@ -1,6 +1,7 @@
 package pp.dao;
 
 import org.springframework.stereotype.Repository;
+import pp.models.Role;
 import pp.models.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,17 +32,20 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(int id, User updatedUser) {
-        User userToBeUpdated = em.find(User.class, id);
-
-        userToBeUpdated.setName(updatedUser.getName());
-        userToBeUpdated.setAge(updatedUser.getAge());
-        userToBeUpdated.setEmail(updatedUser.getEmail());
-
+    public void update(User user) {
+        em.merge(user);
     }
 
     @Override
     public void delete(int id) {
         em.remove(em.find(User.class, id));
+    }
+
+
+    @Override
+    public User getUserByName(String username) {
+        return em.createQuery("select u from User u where u.username = :username", User.class)
+                .setParameter("username", username)
+                .getSingleResult();
     }
 }

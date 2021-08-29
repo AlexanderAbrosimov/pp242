@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Users</title>
     <style>
+
         th {
             font-weight: normal;
             color: #039;
@@ -23,22 +24,28 @@
 <table>
     <tr>
         <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
         <th>Name</th>
         <th>Age</th>
         <th>Email</th>
+        <th>Roles</th>
         <th colspan="2">Actions</th>
     </tr>
     <div th:each="user : ${users}">
         <tr>
             <td><p th:text="${user.getId()}">VALUE</p></td>
+            <td><p th:text="${user.getUsername()}">user</p></td>
+            <td><p th:text="${user.getPassword()}">user</p></td>
             <td><p th:text="${user.getName()}">user</p></td>
             <td><p th:text="${user.getAge()}">user</p></td>
             <td><p th:text="${user.getEmail()}">user</p></td>
-            <td><a th:href="@{/users/{id}/edit (id=${user.getId()})}" >edit</a></td>
+            <td><p th:text="${user.getAuthorities()}">user</p></td>
+            <td><a th:href="@{/{id}/edit (id=${user.getId()})}" >edit</a></td>
             <td>
-                <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
-                <input type="submit" value="Delete"/>
-            </form>
+                <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
+                    <input type="submit" value="Delete"/>
+                </form>
             </td>
         </tr>
     </div>
@@ -46,7 +53,7 @@
 
 <br>
 
-<button type="button" onclick="window.location.href = 'users/new';">Create new user</button>
+<button type="button" onclick="window.location.href = '/new';">Create new user</button>
 
 </body>
 </html>
